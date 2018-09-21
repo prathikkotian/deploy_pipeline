@@ -1,0 +1,30 @@
+{
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "containerDefinitions": [
+        {
+            "name": "devops-container-1",
+            "image": "979645806220.dkr.ecr.us-east-1.amazonaws.com/devops-repo:a7",
+            "memoryReservation": 300,
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 8080,
+                    "containerPort": 8080,
+                    "protocol": "tcp"
+                }
+            ],
+            "entryPoint": [
+                "node",
+                "ipshow.js"
+            ]
+        }
+    ],
+    "volumes": [],
+    "networkMode": "bridge",
+    "placementConstraints": [],
+    "family": "devops-task-1",
+    "taskRoleArn": "arn:aws:iam::979645806220:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::979645806220:role/ecsTaskExecutionRole"
+}
